@@ -5,12 +5,12 @@ table {
 
 th, td {
   border: 1px solid black;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 
 th {
-  background-color: #ccc;
+  background-color: #black;
 }
 
 .type {
@@ -22,33 +22,47 @@ th {
   font-weight: bold;
 }
 
-img {
+.img-top {
+ 
+  height: 28px;
+  width: 64px;
+  margin: 0 auto;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+}
+
+
+
+.img-left {
   display: block;
   margin: 0 auto;
 }
 
+
 .type-fx-0 {
   background-color: #5c5986;
+ padding: 10px;
+ width: 50px;
+
 }
 
 .type-fx-50 {
   background-color: #608659;
+  padding: 10px;
 }
 
 .type-fx-100 {
   background-color: #333333;
+  padding: 10px;
 }
 
 .type-fx-200 {
   background-color: #865959;
+  padding: 10px;
 }
 .type-icon,.cell-atkdef {
   color: #ffffff;
 }
  
 
-.type-fx-cell {
-  width: 37px;
-  height: 37px;
-}
 
