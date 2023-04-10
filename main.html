@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PokeDex Menu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="scripts/jquery.js"></script>
+    <script src="https://pokeapi.co/api/v2/pokemon/"></script>
+    <link rel="stylesheet" type="text/css" href="css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+  </head>
+
+  <div class="section is-dark">
+    <div class="container">
+      <div class="columns is-centered is-vcentered">
+  <div class="column is-narrow">
+    <h1 class="is-size-1 is-flex is-justify-content-center has-text-white">PokeDex</h1>
+        </div>
+      </div>
+        <div class="column is-narrow">
+          <div class="is-flex is-justify-content-center div-no-margin">
+            <button class="button btn-common is-primary is-outlined is-size-2" id="pokemon-btn">
+              Pokemon
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered is-vcentered div-no-margin">
+        <div class="column is-narrow">
+          <div class="is-flex is-justify-content-center">
+            <button class="button btn-common is-warning is-outlined is-size-2" id="weakness-btn">
+              Type Weakness
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered is-vcentered div-no-margin">
+        <div class="column is-narrow">
+          <div class="is-flex is-justify-content-center">
+            <button class="button btn-common is-danger is-outlined is-size-2" id="team-builder-btn">
+              Team Builder
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/menuScript.js"></script>
+  </body>
+</html>

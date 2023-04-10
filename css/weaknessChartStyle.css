@@ -1,0 +1,54 @@
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #ccc;
+}
+
+.type {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+.type-fx-0 {
+  background-color: #5c5986;
+}
+
+.type-fx-50 {
+  background-color: #608659;
+}
+
+.type-fx-100 {
+  background-color: #333333;
+}
+
+.type-fx-200 {
+  background-color: #865959;
+}
+.type-icon,.cell-atkdef {
+  color: #ffffff;
+}
+ 
+
+.type-fx-cell {
+  width: 37px;
+  height: 37px;
+}
+

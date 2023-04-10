@@ -1,0 +1,123 @@
+
+.has-background-primary-dark {
+    background-color: #2959b3;
+  }
+  
+  .card.is-dark {
+    background-color: #2b2645;
+    color: #fff;
+  }
+  
+  .modal.is-dark .modal-background {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal.is-dark .card.is-dark {
+    background-color: #182733;
+  }
+  
+  .delete {
+    color: #fff;
+  }
+  
+  .select.is-dark select {
+    background-color: #333333;
+    color: #fff;
+  }
+  
+  .select.is-dark select:focus {
+    background-color: #2c2b31;
+  }
+  
+  .has-text-white {
+    color: #858585;
+  }
+  
+  
+  .pokemon-image-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+     
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .pokemon-image {
+   
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  
+  table {
+    background-color: #333333;
+  }
+  
+  .custom-button {
+    background-color: #23252a;
+    color: #fff;
+    font-size: 1.2rem; 
+  }
+  
+  html, body {
+    background-color: #1e1f22;
+  }
+  
+  .modal-card-body {
+    background-color: #333333;
+  }
+  
+  .modal-background {
+    background-color: #2e2b2e;
+  }
+  
+  .modal-card {
+    background-color: #3b4f5e;
+  }
+  
+  .suggestion{
+    background-color: #2c2b31;
+  }
+  
+  .on-top {
+    z-index: 9999;
+    position: relative;
+  }
+  
+  #pokemon-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .select.is-dark select {
+    width: 100%;
+  }
+
+
+  .btn-common {
+    width: 320px;
+    height: 80px; 
+  }
+
+  .div-no-margin{
+    margin:0px;
+  }
+
+  .table-bg{
+    background-color: #2b2d31;
+  }
+
+  

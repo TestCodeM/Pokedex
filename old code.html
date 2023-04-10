@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PokeDex</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="jquery.js"></script>
+	<script src="https://pokeapi.co/api/v2/pokemon/"></script>
+	<link rel="stylesheet" type="text/css" href="bulma.css">
+	<script>    
+	
+
+	
+	$(document).ready(function() {
+  // Load the Pokemon list and populate the dropdown menu
+  $.get("https://pokeapi.co/api/v2/pokemon?limit=1118", function(data) {
+    $.each(data.results, function(index, pokemon) {
+      var pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+      $("#pokemon-select").append("<option value='" + pokemon.url + "'>" + pokemonName + "</option>");
+    });
+  });
+
+  // Show the Pokemon information when a Pokemon is selected
+  $("#pokemon-select").change(function() {
+    var pokemonUrl = $(this).val();
+    var pokemonNumber = pokemonUrl.split("/")[6]; // Extract the number from the URL
+    var selectedPokemonCry =  pokemonNumber + "Cry";
+
+    $.get(pokemonUrl, function(data) {
+      var pokemonInfo = "<div class='table-container' style='text-align: center;'> <table style='background-color: #2b2d31;' class='table box is-fullwidth'  >";
+      var pokeName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+
+      // Update the audio element's source with the new cry
+	
+      var pokemonCry = document.getElementById("pokemon-cry");
+	  pokemonCry.volume = 0.1;
+      pokemonCry.src = `cries/${selectedPokemonCry}.wav`;
+
+      // Play the cry
+      pokemonCry.play(); 
+
+					// Display the Pokemon image
+					var imageUrl = data.sprites.front_default;
+					var imageHtml = " <img width='200' height='200' src='" + imageUrl + "' alt='" + data.name + "'>";
+					pokemonInfo += "<tr class='center image-container' id='pokemon-image' > <div class='pokemon-image-wrapper'>" + imageHtml + " </div></tr> " ;
+ 
+					pokemonInfo += "<tr><th class='has-text-white'>Name:</th><td class='has-text-white'>" + pokeName + "</td></tr>";
+					pokemonInfo += "<tr><th class='has-text-white'>Height/Weight:</th><td class='has-text-white'>" + data.height + "m / " + data.weight + "kg</td></tr>";
+					
+					pokemonInfo += "</td></tr>";
+					pokemonInfo += "<tr><th class='has-text-white'>Types:</th><td>";
+					$.each(data.types, function(index, type) {
+						var typeClass = type.type.name.toLowerCase();
+						pokemonInfo += "<img style='padding-left:2px; padding-right:2px;' src='images/types/" + typeClass + ".png'  alt='" + typeClass + "'>";
+					});
+
+					//Abilities
+					pokemonInfo += "<tr><th class='has-text-white'>Abilities:</th><td>";
+					$.each(data.abilities, function(index, ability) {
+					var abilityName = ability.ability.name.split("-").map(function(word) {
+						return word.charAt(0).toUpperCase() + word.slice(1);
+					}).join(" ");
+					pokemonInfo += "<a class='button is-size-6 custom-button ability-name'has-text-white data-ability-url='" + ability.ability.url + "'>" + abilityName + "</a> &nbsp;";
+					});				
+					pokemonInfo += "</td></tr>";
+
+					//details about that Ability
+					$(document).on('click', '.ability-name', function() {
+					var abilityUrl = $(this).data('ability-url');
+					$.get(abilityUrl, function(abilityData) {
+						var abilityEffect = abilityData.effect_entries.find(function(effect) {
+						return effect.language.name === 'en';
+						}).short_effect;
+						var abilityName = abilityData.name.split("-").map(function(word) {
+						return word.charAt(0).toUpperCase() + word.slice(1);
+						}).join(" ");
+
+						var modalHtml = `
+						<div class="modal is-dark is-active">
+							<div class="modal-background" ></div>
+							<div class="modal-card">
+							<header class="modal-card-head">
+								<p class="modal-card-title">${abilityName}</p>
+							</header>
+							<section class="modal-card-body">
+								<p>${abilityEffect}</p>
+							</section>
+							</div>
+						</div>
+						`;
+
+						$('body').append(modalHtml);
+						$('.modal .delete, .modal-background').click(function() {
+						$('.modal').remove();
+						});
+					});
+					});
+
+				 	//Stats
+					pokemonInfo += "<tr><th class='has-text-white'>Stats:</th><td>";
+					$.each(data.stats, function(index, stat) {
+					var statName = stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1);
+					var statValue = stat.base_stat;	
+					var statBar = "<progress class='progress is-info' value='" + statValue + "' max='255'></progress>";
+					 pokemonInfo += "<div class='stat-info has-text-white is-size-4'>" + statName + ": " + statValue + statBar + "</div>";
+					});
+					pokemonInfo += "</td></tr>";
+
+
+					
+					//Moves
+					pokemonInfo += "<tr><th class='has-text-white'>Moves:</th><td><table><tbody>";
+					$.each(data.moves, function(index, move) {
+					var level = '';
+					if (move.version_group_details[0].level_learned_at !== 0) {
+						level = '<b style="color: #3e8ed0;"> (Lvl ' + move.version_group_details[0].level_learned_at + ') </b>';
+					}
+
+					var pokemonMove = move.move.name.replace(/-/g, " ");
+					pokemonMove = pokemonMove.split(" ").map(function(word) {
+						return word.charAt(0).toUpperCase() + word.slice(1);
+					}).join(" ");
+
+					pokemonInfo += " <span style= 'margin:5px;'class='button custom-button is-size-5 move-button' data-move-url='" + move.move.url + "'>" + pokemonMove + "&nbsp;" +level + "</span> ";
+
+					
+					});
+					pokemonInfo += "</tbody></table></td></tr>";
+
+					$(document).on('click', '.move-button', function() {
+					var moveUrl = $(this).data('move-url');
+					$.get(moveUrl, function(moveData) {
+						var moveName = moveData.name.replace(/-/g, " ");
+						moveName = moveName.split(" ").map(function(word) {
+						return word.charAt(0).toUpperCase() + word.slice(1);
+						}).join(" ");
+
+						var movePower = moveData.power || '-';
+						var moveAccuracy = moveData.accuracy || '-';
+						var movePP = moveData.pp || '-';
+						var moveType = moveData.type.name.replace(/-/g, " ");
+						moveType = moveType.split(" ").map(function(word) {
+						return word.charAt(0).toUpperCase() + word.slice(1);
+						}).join(" ");
+
+						var moveEffect = moveData.effect_entries.find(function(effect) {
+						return effect.language.name === 'en';
+						}).short_effect;
+
+						var modalHtml = `
+						<div class="modal is-active is-dark">
+							<div class="modal-background"></div>
+							<div class="modal-card">
+							<header class="modal-card-head">
+								<p class="modal-card-title">${moveName}</p>
+							</header>
+							<section class="modal-card-body">
+								<div class="columns">
+								<div class="column is-size-5"><b>Power:</b> ${movePower}</div>
+								<div class="column is-size-5"><b>Accuracy:</b> ${moveAccuracy}</div>
+								<div class="column is-size-5 "><b>PP:</b> ${movePP}</div>
+								<div class="column is-size-5" style ="align-items: center; display: flex;"><b>Type:</b> <img style='padding-left:2px; padding-right:2px;' src='images/types/${moveType}.png'  alt='${moveType}'> </div>
+								</div>
+								<p><b>Effect:</b> ${moveEffect}</p>
+							</section>
+							</div>
+						</div>
+						`;
+						$('body').append(modalHtml);
+
+						$('.modal-background, .delete').click(function() {
+						$('.modal').remove();
+						});
+					});
+					
+					});
+					pokemonInfo = pokemonInfo.slice(0, -2); // Remove last comma and space
+					pokemonInfo += "</td></tr>";
+					pokemonInfo += "</table> </div>";
+					$("#pokemon-info").html(pokemonInfo);
+			}); }); });
+				</script>
+			</head>
+			<body class="has-text-white has-text-centered" style="  background-color: #1e1f22;">   
+				<audio id="pokemon-cry" src=""></audio>
+				<div class="section is-dark">			
+					<div class="container is-centered is-dark ">	
+						<div class="modal is-dark " id="ability-modal">		 
+							<div class="modal-content is-dark">
+								<div class="box is-dark">
+									<h1 class="title is-3" id="ability-name"></h1>
+									<p class="subtitle is-5" id="ability-description"></p>
+								</div>
+							</div>
+							<button class="modal-close custom-button is-large" aria-label="close"></button>
+						</div>
+						<div class="card-content is-dark">
+							<div class="field">
+								<label class="label  has-text-white">Select a Pokemon:</label>
+								<div class="control  has-text-white">
+									<div class="select is-fullwidth is-dark">
+										<select id="pokemon-select">
+											<option value="">-- Select a Pokemon --</option>
+										</select>
+									</div>
+								</div>			
+								<div class="has-text-white" id="pokemon-info"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</body>
+</html>
