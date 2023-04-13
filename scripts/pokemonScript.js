@@ -243,38 +243,43 @@ pokemonInfo += "</p></td></tr>";
         });
       });
 
-      // Stats
-      pokemonInfo +=
-        "<tr class='is-fullwidth'><th class='has-text-white'>Stats:</th><td>";
-      $.each(data.stats, function (index, stat) {
-        var statName = stat.stat.name
-          .replace(/-/g, " ")
-          .replace(/\b\w/g, function (l) {
-            return l.toUpperCase();
-          });
-        if (statName == "Hp") {
-          statName = "Health";
-        }
-        if (statName == "Special Attack") {
-          statName = "Sp Attack";
-        }
-        if (statName == "Special Defense") {
-          statName = "Sp Defense";
-        }
-        var statValue = stat.base_stat;
-        var statBar =
-          "<progress class='progress is-info' value='" +
-          statValue +
-          "' max='255'></progress>";
-        pokemonInfo +=
-          "<div class='stat-info has-text-white is-size-5'>" +
-          statName +
-          ": " +
-          statValue +
-          statBar +
-          "</div>";
-      });
-      pokemonInfo += "</td></tr>";
+// Stats
+var statsInfo = "<br><div class='table-container box' style='text-align: center; background-color: #2b2d31;'> ";
+var totalStatValue=0;
+$.each(data.stats, function (index, stat) {
+  
+  var statName = stat.stat.name
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, function (l) {
+      return l.toUpperCase();
+    });
+  if (statName == "Hp") {
+    statName = "Health";
+  }
+  if (statName == "Special Attack") {
+    statName = "Sp Attack";
+  }
+  if (statName == "Special Defense") {
+    statName = "Sp Defense";
+  }
+  var statValue = stat.base_stat;
+  var statBar =
+    "<progress class='progress is-info' value='" +
+    statValue +
+    "' max='255'></progress>";
+  statsInfo +=
+    "<div class='stat-info has-text-white is-size-5'>" +
+    statName +
+    ": " +
+    statValue +
+    statBar +
+    "</div>  ";
+
+    totalStatValue +=statValue;
+});
+statsInfo += "<br><div class='stat-info has-text-white is-size-4'> Total Stats: " + totalStatValue + "</div>";
+$("#pokemon-stats").html(statsInfo);
+
 
       //Evolution 
 $.get(data.species.url, function (speciesData) {

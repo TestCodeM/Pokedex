@@ -84,10 +84,11 @@
     "strengths": ["ice", "rock", "fairy", "steel"],
     "immunities": ["poison"]
     },  
-"fairy": {
-"weaknesses": ["poison", "steel"],
-"strengths": ["fighting", "dragon", "dark"],
-"immunities": ["dragon"]
-}
+    "fairy": {
+    "weaknesses": ["poison", "steel"],
+    "strengths": ["fighting", "dragon", "dark"],
+    "immunities": ["dragon"]
+    }
+    
 }
   
