@@ -125,7 +125,7 @@ $(document).ready(function () {
 
       var pokemonCry = document.getElementById("pokemon-cry");
       pokemonCry.volume = 0.1;
-      pokemonCry.src = `cries/${selectedPokemonCry}.wav`;
+      pokemonCry.src = `cries/${selectedPokemonCry}.webm`;
 
       // Play the cry
       pokemonCry.play();
