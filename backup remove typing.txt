@@ -1,0 +1,2446 @@
+
+   //When pokemon have 2 types
+   else if (types[1] == "bug")
+      {
+        //pokemonInfo += "<td class='has-text-white'> bug";
+
+        switch (types[0]) {
+          case "dark":
+            weaknessList = ["fire","flying","bug","rock"];
+            immunitiesList = ["psychic"];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = ["ice","flying","rock","dragon","fairy"];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = ["fire","rock"];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;     
+        }
+      }
+      
+      else if (types[1] == "dark")
+      {
+        pokemonInfo += "<td class='has-text-white'> dark";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }  
+      }
+
+      else if (types[1] == "dragon")
+      {
+        pokemonInfo += "<td class='has-text-white'> dragon";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;   
+        }
+      }
+
+      else if (types[1] == "electric")
+      {
+        pokemonInfo += "<td class='has-text-white'> electric";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }
+      }
+
+      else if (types[1] == "fairy")
+      {
+        pokemonInfo += "<td class='has-text-white'> fairy";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;   
+        }
+      }
+      
+      else if (types[1] == "fighting")
+      {
+        pokemonInfo += "<td class='has-text-white'> fighting";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;   
+        }
+      }
+
+      else if (types[1] == "fire")
+      {
+        pokemonInfo += "<td class='has-text-white'> fire";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;  
+        }
+      }
+
+      else if (types[1] == "flying")
+      {
+        pokemonInfo += "<td class='has-text-white'> flying";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;  
+        }
+      }
+
+      else if (types[1] == "dark")
+      {
+        pokemonInfo += "<td class='has-text-white'> dark";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;   
+        }
+      }
+
+      else if (types[1] == "dragon")
+      {
+        pokemonInfo += "<td class='has-text-white'> dragon";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }
+      }
+
+      else if (types[1] == "electric")
+      {
+        pokemonInfo += "<td class='has-text-white'> electric";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;  
+        }
+      }
+
+      else if (types[1] == "fairy")
+      {
+        pokemonInfo += "<td class='has-text-white'> fairy";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }
+      }
+      
+      else if (types[1] == "fighting")
+      {
+        pokemonInfo += "<td class='has-text-white'> fighting";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;     
+        }
+      }
+
+      else if (types[1] == "fire")
+      {
+        pokemonInfo += "<td class='has-text-white'> fire";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;          
+        }
+      }
+
+      else if (types[1] == "flying")
+      {
+        pokemonInfo += "<td class='has-text-white'> flying";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;       
+        }
+      }
+
+      else if (types[1] == "ghost")
+      {
+        pokemonInfo += "<td class='has-text-white'> ghost";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;        
+        }
+      }
+
+      else if (types[1] == "grass")
+      {
+        pokemonInfo += "<td class='has-text-white'> grass";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;        
+        }
+      }
+
+      else if (types[1] == "ground")
+      {
+        pokemonInfo += "<td class='has-text-white'> ground";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;          
+        }
+      }
+
+      else if (types[1] == "ice")
+      {
+        pokemonInfo += "<td class='has-text-white'> ice";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;       
+        }
+      }
+      
+      else if (types[1] == "normal")
+      {
+        pokemonInfo += "<td class='has-text-white'> normal";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = ["fire","flying","rock"];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = ["ghost","normal","fight"];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = ["ghost"];
+            getWeaknessAndImmunity();
+          break;       
+        }
+      }
+
+      else if ((types[1] == "poison")||(types[0] == "poison"))
+      {
+        pokemonInfo += "<td class='has-text-white'> poison";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }
+      }
+
+      else if ((types[1] == "psychic")||(types[0] == "psychic"))
+      {
+        pokemonInfo += "<td class='has-text-white'> psychic";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;      
+        }
+      }
+
+      else if ((types[1] == "rock")||(types[0] == "rock"))
+      {
+        pokemonInfo += "<td class='has-text-white'> rock";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;    
+        }
+      }
+
+      else if (types[1] == "steel")
+      {
+        pokemonInfo += "<td class='has-text-white'> steel";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;       
+        }
+      }
+
+      else if (types[1] == "water")
+      {
+        pokemonInfo += "<td class='has-text-white'> water";
+
+        switch (types[0]) {
+          case "bug":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dark":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "dragon":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "electric":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fairy":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fighting":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "fire":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "flying":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ghost":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "grass":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ground":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "ice":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "normal":  
+          weaknessList = [];
+          immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "poison":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "psychic":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "rock":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break; 
+          case "steel":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;
+          case "water":
+            weaknessList = [];
+            immunitiesList = [];
+            getWeaknessAndImmunity();
+          break;       
+        }
+      }
