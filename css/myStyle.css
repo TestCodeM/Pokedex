@@ -66,8 +66,9 @@
   .custom-button {
     background-color: #23252a;
     color: #fff;
-    font-size: 1.2rem; 
-  }
+    font-size: 1.2rem;    
+    margin-bottom: 10px;
+   }
   
   html, body {
     background-color: #1e1f22;
