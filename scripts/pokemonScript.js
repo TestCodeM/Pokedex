@@ -1,3 +1,40 @@
+const typeColors = {
+  normal: '#A8A878',
+  fire: '#F08030',
+  water: '#6890F0',
+  electric: '#F8D030',
+  grass: '#78C850',
+  ice: '#98D8D8',
+  fighting: '#C03028',
+  poison: '#A040A0',
+  ground: '#E0C068',
+  flying: '#A890F0',
+  psychic: '#F85888',
+  bug: '#A8B820',
+  rock: '#B8A038',
+  ghost: '#705898',
+  dragon: '#7038F8',
+  dark: '#705848',
+  steel: '#B8B8D0',
+  fairy: '#F0B6BC'
+};
+
+var totalPokemon = 1302;
+
+let weaknessList = [];
+let immunitiesList = [];
+let resilientList = [];
+
+let weaknessList2 = [];
+let immunitiesList2 = [];
+let resilientList2 = [];
+
+let weaknessListX4 = [];
+let resilientList025 = [];
+
+var typeClass;
+var trackType;
+
 $(document).ready(function () {
   // Load the Pokemon list and store it in an array
   var pokemonList = [];
@@ -104,9 +141,21 @@ $(document).ready(function () {
     }
   });
 
-    // Show the Pokemon information when a Pokemon is selected
+  // Show the Pokemon information when a Pokemon is selected
   $("#pokemon-select, #pokemon-input").change(function () {
     $("#pokemon-panel").hide();
+
+    weaknessList = [];
+    immunitiesList = [];
+    resilientList = [];
+
+    weaknessList2 = [];
+    immunitiesList2 = [];
+    resilientList2 = [];
+
+    weaknessListX4 = [];
+    resilientList025 = [];
+
     var pokemonUrl = $(this).val();
     var pokemonNumber = pokemonUrl.split("/")[6]; // Extract the number from the URL
     var selectedPokemonCry = pokemonNumber + "Cry";
@@ -133,18 +182,20 @@ $(document).ready(function () {
 
       // Display the Pokemon image
       var imageUrl = data.sprites.front_default;
-      
-
-      var imageHtml =" <img width='200' height='200' src='" + imageUrl + "' alt='" + data.name + "'>";
-      var pokemonImage =" <div class='pokemon-image-wrapper center image-container' id='pokemon-image' >" + imageHtml + " </div>  ";
-      pokemonInfo += "<tr class= 'is-fullwidth' ><th class='has-text-white'>Name:</th><td class='has-text-white'>" + pokeName + "</td></tr>";
-      pokemonInfo += "<tr class= 'is-fullwidth'><th class='has-text-white'>Height/Weight:</th><td class='has-text-white'>" + data.height + "m / " + data.weight + "kg</td></tr>";
+      var imageHtml = " <img width='200' height='200' src='" + imageUrl + "' alt='" + data.name + "'>";
+      var pokemonImage = " <div class='pokemon-image-wrapper center image-container' id='pokemon-image' >" + imageHtml + " </div>  ";
+      pokemonInfo += "<tr class= 'is-fullwidth' ><th class='has-text-white text-center'>Name:</th><td class='has-text-white'>" + pokeName + "</td></tr>";
+      pokemonInfo += "<tr class= 'is-fullwidth'><th class='has-text-white text-center'>Height/Weight:</th><td class='has-text-white'>" + (data.height / 10).toFixed(1) + "m / " + (data.weight / 10).toFixed(1) + "kg</td></tr>";
       pokemonInfo += "</td></tr>";
 
       //types
       pokemonInfo += "<tr class= 'is-fullwidth'><th class='has-text-white text-center'>Types:</th><td>";
       $.each(data.types, function (index, type) {
-        var typeClass = type.type.name.toLowerCase();
+
+        typeClass = type.type.name.toLowerCase();
+
+        trackType = typeClass + "/" + trackType;
+
         pokemonInfo +=
           "<img style='padding-left:2px; padding-right:2px;' src='images/types/" +
           typeClass +
@@ -154,38 +205,1033 @@ $(document).ready(function () {
       });
 
       $("#pokemon-image").html(pokemonImage);
-      // Display the Pokemon weaknesses 
-pokemonInfo += "<tr class='is-fullwidth' id='pokemon-weaknesses-container'> <th class='has-text-white'>Weaknesses: </th><td><div class='type-icons-container'></div></td></tr>";
 
-$.each(data.types, function (index, type) {
-  var typeName = type.type.name;
-  var typeImageUrl = `images/types/${typeName}.png`;
-  var typeDisplayName = typeName.charAt(0).toUpperCase() + typeName.slice(1);
+      typeNames = data.types.map(function (type) {
+      });
 
-  // Fetch the type data and generate the HTML for the weakness
-  var weaknessPromise = $.get(`https://pokeapi.co/api/v2/type/${typeName}`, function (data) {
-    var doubleDamageFrom = data.damage_relations.double_damage_from;
-    var weaknessHtml = '';
+      //Weaknesses and Immunities  
+      var types = trackType.split("/");
 
-    $.each(doubleDamageFrom, function (index, type) {
-      var typeImageUrl = `images/types/${type.name}.png`;
-      var typeDisplayName = type.name.charAt(0).toUpperCase() + type.name.slice(1);
+      function getWeaknessAndImmunity() {
+        typeClass = "";
+        trackType = "";
 
-      weaknessHtml += `<img class='type-icon' src='${typeImageUrl}' alt='${typeDisplayName}'>`;
-    });
+        if (weaknessListX4.length >= 1 || weaknessList.length >= 1) {
+          pokemonInfo += "<tr class='is-fullwidth'><th class='has-text-white'>Weaknesses:</th><td class='has-text-white'>";
 
-    // Add the weakness HTML to the container
-    $('#pokemon-weaknesses-container .type-icons-container').append(weaknessHtml);
-  });
+          // Add x4 weaknesses with outline
+          for (let weaknessX4 of weaknessListX4) {
+            pokemonInfo += `<img class='type-icon x4-outline' src='images/types/${weaknessX4}.png' alt='${weaknessX4}'> `;
+          }
 
-  // Add the type icon to the container
-  weaknessPromise.done(function () {
-    var typeHtml = `<img class='type-icon' src='${typeImageUrl}' alt='${typeDisplayName}'>`;
-    $('#pokemon-weaknesses-container .type-icons-container').append(typeHtml);
-  });
-});
+          // Add x2 weaknesses normally
+          for (let weakness of weaknessList) {
+            pokemonInfo += `<img class='type-icon' src='images/types/${weakness}.png' alt='${weakness}'> `;
+          }
 
-pokemonInfo += "</p></td></tr>";
+          pokemonInfo += "</td></tr>";
+        }
+
+
+        if (immunitiesList.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'> <th class='has-text-white'> Immunities:</th> <td class= has-text-white>";
+
+          for (let immunity of immunitiesList) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + immunity + ".png' alt='" + immunity + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+
+
+        if (resilientList025.length >= 1 || resilientList.length >= 1) {
+          pokemonInfo += "<tr class='is-fullwidth'><th class='has-text-white'>Resilient:</th><td class='has-text-white'>";
+
+          // Add x4 resilient with outline
+          for (let resilient025 of resilientList025) {
+            pokemonInfo += `<img class='type-icon x025-outline' src='images/types/${resilient025}.png' alt='${resilient025}'> `;
+          }
+
+          // Add x2 resilient normally
+          for (let resilient of resilientList) {
+            pokemonInfo += `<img class='type-icon' src='images/types/${resilient}.png' alt='${resilient}'> `;
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+      }
+
+      function mergeLists(list1, list2, destination) {
+        let combined = [...list1, ...list2]; // Merge both lists
+        let count = new Map(); // Use Map for efficient counting
+
+        // Count occurrences of each type
+        for (let type of combined) {
+          count.set(type, (count.get(type) || 0) + 1);
+        }
+
+        let uniqueList = [];
+        let duplicateList = [];
+
+        // Separate into unique and duplicate lists
+        for (let [type, occurrences] of count) {
+          if (occurrences >= 2) {
+            duplicateList.push(type); // Move duplicates
+          } else {
+            uniqueList.push(type); // Keep unique ones
+          }
+        }
+
+        // Update original lists
+        list1.length = 0;
+        list1.push(...uniqueList); // example: Keep only unique weaknesses in weaknessList
+        destination.length = 0;
+        destination.push(...duplicateList); // example: Move duplicates to weaknessListX4
+      }
+
+      function checkTypingMatch() {
+        immunitiesList = immunitiesList2.concat(immunitiesList);
+        mergeLists(weaknessList, weaknessList2, weaknessListX4);
+        mergeLists(resilientList, resilientList2, resilientList025);
+
+        // Filter out elements in Immunities from weaknessList and resilientList
+        weaknessList = weaknessList.filter(w => !immunitiesList.includes(w));
+        resilientList = resilientList.filter(r => !immunitiesList.includes(r));
+
+        // Find common elements in both lists
+        let commonElements = weaknessList.filter(w => resilientList.includes(w));
+
+        // Remove common elements from both lists
+        weaknessList = weaknessList.filter(w => !commonElements.includes(w));
+        resilientList = resilientList.filter(r => !commonElements.includes(r));
+
+      }
+
+      function get2ndTypeCal() {
+        switch (types[1]) {
+          case "bug":
+            weaknessList2 = ["fire", "flying", "rock"];
+            immunitiesList2 = [];
+            resilientList2 = ["fighting", "ground", "grass"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "dark":
+            weaknessList2 = ["fighting", "bug", "fairy"];
+            immunitiesList2 = ["psychic"];
+            resilientList2 = ["dark", "ghost"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "dragon":
+            weaknessList2 = ["dragon", "fairy", "ice"];
+            immunitiesList2 = [];
+            resilientList2 = ["fire", "water", "grass", "electric"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "electric":
+            weaknessList2 = ["ground"];
+            immunitiesList2 = [];
+            resilientList2 = ["flying", "electric", "steel"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fairy":
+            weaknessList2 = ["poison", "steel"];
+            immunitiesList2 = ["dragon"];
+            resilientList2 = ["fighting", "bug", "dark"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fighting":
+            weaknessList2 = ["flying", "psychic", "fairy"];
+            immunitiesList2 = [];
+            resilientList2 = ["rock", "bug", "dark"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fire":
+            weaknessList2 = ["water", "ground", "rock"];
+            immunitiesList2 = [];
+            resilientList2 = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "flying":
+            weaknessList2 = ["electric", "ice", "rock"];
+            immunitiesList2 = ["ground"];
+            resilientList2 = ["fighting", "bug", "grass"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ghost":
+            weaknessList2 = ["ghost", "dark"];
+            immunitiesList2 = ["normal", "fighting"];
+            resilientList2 = ["poison", "bug"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "grass":
+            weaknessList2 = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList2 = [];
+            resilientList2 = ["ground", "water", "grass", "electric"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ground":
+            weaknessList2 = ["water", "grass", "ice"];
+            immunitiesList2 = ["electric"];
+            resilientList2 = ["poison", "rock"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ice":
+            weaknessList2 = ["fire", "fighting", "rock", "steel"];
+            immunitiesList2 = [];
+            resilientList2 = ["ice"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "normal":
+            weaknessList2 = ["fighting"];
+            immunitiesList2 = ["ghost"];
+            resilientList2 = [];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "poison":
+            weaknessList2 = ["ground", "psychic"];
+            immunitiesList2 = [];
+            resilientList2 = ["fighting", "poison", "grass", "bug", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "psychic":
+            weaknessList2 = ["bug", "ghost", "dark"];
+            immunitiesList2 = [];
+            resilientList2 = ["psychic", "fighting"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "rock":
+            weaknessList2 = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList2 = [];
+            resilientList2 = ["normal", "flying", "poison", "fire"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "steel":
+            weaknessList2 = ["fire", "fighting", "ground"];
+            immunitiesList2 = ["poison"];
+            resilientList2 = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "water":
+            weaknessList2 = ["electric", "grass"];
+            immunitiesList2 = [];
+            resilientList2 = ["steel", "fire", "water", "ice"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+        }
+      }
+
+      // Check if the Pokemon have 1 type
+      if (types[1] == "" || types[1] == "undefined") {
+        switch (types[0]) {
+          case "bug":
+            weaknessList = ["fire", "flying", "rock"];
+            immunitiesList = [];
+            resilientList = ["fighting", "ground", "grass"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "dark":
+            weaknessList = ["fighting", "bug", "fairy"];
+            immunitiesList = ["psychic"];
+            resilientList = ["dark", "ghost"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "dragon":
+            weaknessList = ["dragon", "fairy", "ice"];
+            immunitiesList = [];
+            resilientList = ["fire", "water", "grass", "electric"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "electric":
+            weaknessList = ["ground"];
+            immunitiesList = [];
+            resilientList = ["flying", "electric", "steel"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fairy":
+            weaknessList = ["poison", "steel"];
+            immunitiesList = ["dragon"];
+            resilientList = ["fighting", "bug", "dark"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fighting":
+            weaknessList = ["flying", "psychic", "fairy"];
+            immunitiesList = [];
+            resilientList = ["rock", "bug", "dark"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fire":
+            weaknessList = ["water", "ground", "rock"];
+            immunitiesList = [];
+            resilientList = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "flying":
+            weaknessList = ["electric", "ice", "rock"];
+            immunitiesList = ["ground"];
+            resilientList = ["fighting", "bug", "grass"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ghost":
+            weaknessList = ["ghost", "dark"];
+            immunitiesList = ["normal", "fighting"];
+            resilientList = ["poison", "bug"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "grass":
+            weaknessList = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList = [];
+            resilientList = ["ground", "water", "grass", "electric"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ground":
+            weaknessList = ["water", "grass", "ice"];
+            immunitiesList = ["electric"];
+            resilientList = ["poison", "rock"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ice":
+            weaknessList = ["fire", "fighting", "rock", "steel"];
+            immunitiesList = [];
+            resilientList = ["ice"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "normal":
+            weaknessList = ["fighting"];
+            immunitiesList = ["ghost"];
+            resilientList = [];
+            getWeaknessAndImmunity();
+            break;
+
+          case "poison":
+            weaknessList = ["ground", "psychic"];
+            immunitiesList = [];
+            resilientList = ["fighting", "poison", "grass", "bug", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "psychic":
+            weaknessList = ["bug", "ghost", "dark"];
+            immunitiesList = [];
+            resilientList = ["psychic", "fighting"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "rock":
+            weaknessList = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList = [];
+            resilientList = ["normal", "flying", "poison", "fire"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "steel":
+            weaknessList = ["fire", "fighting", "ground"];
+            immunitiesList = ["poison"];
+            resilientList = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "water":
+            weaknessList = ["electric", "grass"];
+            immunitiesList = [];
+            resilientList = ["steel", "fire", "water", "ice"];
+            getWeaknessAndImmunity();
+            break;
+        }
+      }
+
+      // Check if the Pokemon have 2 types
+      else if (types[1] != "" || types[1] != "undefined") {
+        switch (types[0]) {
+          case "bug":
+            weaknessList = ["fire", "flying", "rock"];
+            immunitiesList = [];
+            resilientList = ["fighting", "ground", "grass"];
+            get2ndTypeCal();
+            break;
+
+          case "dark":
+            weaknessList = ["fighting", "bug", "fairy"];
+            immunitiesList = ["psychic"];
+            resilientList = ["dark", "ghost"];
+            get2ndTypeCal();
+            break;
+
+          case "dragon":
+            weaknessList = ["dragon", "fairy", "ice"];
+            immunitiesList = [];
+            resilientList = ["fire", "water", "grass", "electric"];
+            get2ndTypeCal();
+            break;
+
+          case "electric":
+            weaknessList = ["ground"];
+            immunitiesList = [];
+            resilientList = ["flying", "electric", "steel"];
+            get2ndTypeCal();
+            break;
+
+          case "fairy":
+            weaknessList = ["poison", "steel"];
+            immunitiesList = ["dragon"];
+            resilientList = ["fighting", "bug", "dark"];
+            get2ndTypeCal();
+            break;
+
+          case "fighting":
+            weaknessList = ["flying", "psychic", "fairy"];
+            immunitiesList = [];
+            resilientList = ["rock", "bug", "dark"];
+            get2ndTypeCal();
+            break;
+
+          case "fire":
+            weaknessList = ["water", "ground", "rock"];
+            immunitiesList = [];
+            resilientList = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "flying":
+            weaknessList = ["electric", "ice", "rock"];
+            immunitiesList = ["ground"];
+            resilientList = ["fighting", "bug", "grass"];
+            get2ndTypeCal();
+            break;
+
+          case "ghost":
+            weaknessList = ["ghost", "dark"];
+            immunitiesList = ["normal", "fighting"];
+            resilientList = ["poison", "bug"];
+            get2ndTypeCal();
+            break;
+
+          case "grass":
+            weaknessList = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList = [];
+            resilientList = ["ground", "water", "grass", "electric"];
+            get2ndTypeCal();
+            break;
+
+          case "ground":
+            weaknessList = ["water", "grass", "ice"];
+            immunitiesList = ["electric"];
+            resilientList = ["poison", "rock"];
+            get2ndTypeCal();
+            break;
+
+          case "ice":
+            weaknessList = ["fire", "fighting", "rock", "steel"];
+            immunitiesList = [];
+            resilientList = ["ice"];
+            get2ndTypeCal();
+            break;
+
+          case "normal":
+            weaknessList = ["fighting"];
+            immunitiesList = ["ghost"];
+            resilientList = [];
+            get2ndTypeCal();
+            break;
+
+          case "poison":
+            weaknessList = ["ground", "psychic"];
+            immunitiesList = [];
+            resilientList = ["fighting", "poison", "grass", "bug", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "psychic":
+            weaknessList = ["bug", "ghost", "dark"];
+            immunitiesList = [];
+            resilientList = ["psychic", "fighting"];
+            get2ndTypeCal();
+            break;
+
+          case "rock":
+            weaknessList = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList = [];
+            resilientList = ["normal", "flying", "poison", "fire"];
+            get2ndTypeCal();
+            break;
+
+          case "steel":
+            weaknessList = ["fire", "fighting", "ground"];
+            immunitiesList = ["poison"];
+            resilientList = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "water":
+            weaknessList = ["electric", "grass"];
+            immunitiesList = [];
+            resilientList = ["steel", "fire", "water", "ice"];
+            get2ndTypeCal();
+            break;
+        }
+      }
+
+      function getWeaknessAndImmunity() {
+        typeClass = "";
+        trackType = "";
+
+        if (weaknessListX4.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'><th class='has-text-white'>Weakness (x4):</th><td class= has-text-white>";
+
+          for (let weaknessX4 of weaknessListX4) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + weaknessX4.toString() + ".png' alt='" + weaknessX4.toString() + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+
+        if (weaknessList.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'><th class='has-text-white'>Weakness (x2):</th><td class= has-text-white>";
+
+          for (let weakness of weaknessList) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + weakness.toString() + ".png' alt='" + weakness.toString() + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+
+        if (immunitiesList.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'> <th class='has-text-white'> Immunities(x0):</th> <td class= has-text-white>";
+
+          for (let immunity of immunitiesList) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + immunity + ".png' alt='" + immunity + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+
+        if (resilientList.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'> <th class='has-text-white'> Resilient(x0.5):</th> <td class= has-text-white>";
+
+          for (let resilient of resilientList) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + resilient + ".png' alt='" + resilient + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+
+        if (resilientList025.length >= 1) {
+          pokemonInfo += "<tr class= 'is-fullwidth'> <th class='has-text-white'> Resilient (x0.25):</th> <td class= has-text-white>";
+
+          for (let resilient025 of resilientList025) {
+            pokemonInfo += "<img class='type-icon' src='images/types/" + resilient025 + ".png' alt='" + resilient025 + "'> ";
+          }
+
+          pokemonInfo += "</td></tr>";
+        }
+      }
+
+      function mergeLists(list1, list2, destination) {
+        let combined = [...list1, ...list2]; // Merge both lists
+        let count = new Map(); // Use Map for efficient counting
+
+        // Count occurrences of each type
+        for (let type of combined) {
+          count.set(type, (count.get(type) || 0) + 1);
+        }
+
+        let uniqueList = [];
+        let duplicateList = [];
+
+        // Separate into unique and duplicate lists
+        for (let [type, occurrences] of count) {
+          if (occurrences >= 2) {
+            duplicateList.push(type); // Move duplicates
+          } else {
+            uniqueList.push(type); // Keep unique ones
+          }
+        }
+
+        // Update original lists
+        list1.length = 0;
+        list1.push(...uniqueList); // example: Keep only unique weaknesses in weaknessList
+        destination.length = 0;
+        destination.push(...duplicateList); // example: Move duplicates to weaknessListX4
+      }
+
+      function checkTypingMatch() {
+        //TODO: write logic for check each: 
+        //TODO: 1st type: immunitiesList, resilientList and weaknessList 
+        //TODO: 2nd type: immunitiesList2, resilientList2 and weaknessList2
+
+        immunitiesList = immunitiesList2.concat(immunitiesList);
+        mergeLists(weaknessList, weaknessList2, weaknessListX4);
+        mergeLists(resilientList, resilientList2, resilientList025);
+
+        // Filter out elements in Immunities from weaknessList and resilientList
+        weaknessList = weaknessList.filter(w => !immunitiesList.includes(w));
+        resilientList = resilientList.filter(r => !immunitiesList.includes(r));
+
+        // Find common elements in both lists
+        let commonElements = weaknessList.filter(w => resilientList.includes(w));
+
+        // Remove common elements from both lists
+        weaknessList = weaknessList.filter(w => !commonElements.includes(w));
+        resilientList = resilientList.filter(r => !commonElements.includes(r));
+
+      }
+
+      function get2ndTypeCal() {
+        switch (types[1]) {
+          case "bug":
+            weaknessList2 = ["fire", "flying", "rock"];
+            immunitiesList2 = [];
+            resilientList2 = ["fighting", "ground", "grass"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "dark":
+            weaknessList2 = ["fighting", "bug", "fairy"];
+            immunitiesList2 = ["psychic"];
+            resilientList2 = ["dark", "ghost"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "dragon":
+            weaknessList2 = ["dragon", "fairy", "ice"];
+            immunitiesList2 = [];
+            resilientList2 = ["fire", "water", "grass", "electric"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "electric":
+            weaknessList2 = ["ground"];
+            immunitiesList2 = [];
+            resilientList2 = ["flying", "electric", "steel"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fairy":
+            weaknessList2 = ["poison", "steel"];
+            immunitiesList2 = ["dragon"];
+            resilientList2 = ["fighting", "bug", "dark"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fighting":
+            weaknessList2 = ["flying", "psychic", "fairy"];
+            immunitiesList2 = [];
+            resilientList2 = ["rock", "bug", "dark"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "fire":
+            weaknessList2 = ["water", "ground", "rock"];
+            immunitiesList2 = [];
+            resilientList2 = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "flying":
+            weaknessList2 = ["electric", "ice", "rock"];
+            immunitiesList2 = ["ground"];
+            resilientList2 = ["fighting", "bug", "grass"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ghost":
+            weaknessList2 = ["ghost", "dark"];
+            immunitiesList2 = ["normal", "fighting"];
+            resilientList2 = ["poison", "bug"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "grass":
+            weaknessList2 = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList2 = [];
+            resilientList2 = ["ground", "water", "grass", "electric"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ground":
+            weaknessList2 = ["water", "grass", "ice"];
+            immunitiesList2 = ["electric"];
+            resilientList2 = ["poison", "rock"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "ice":
+            weaknessList2 = ["fire", "fighting", "rock", "steel"];
+            immunitiesList2 = [];
+            resilientList2 = ["ice"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "normal":
+            weaknessList2 = ["fighting"];
+            immunitiesList2 = ["ghost"];
+            resilientList2 = [];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "poison":
+            weaknessList2 = ["ground", "psychic"];
+            immunitiesList2 = [];
+            resilientList2 = ["fighting", "poison", "grass", "bug", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "psychic":
+            weaknessList2 = ["bug", "ghost", "dark"];
+            immunitiesList2 = [];
+            resilientList2 = ["psychic", "fighting"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "rock":
+            weaknessList2 = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList2 = [];
+            resilientList2 = ["normal", "flying", "poison", "fire"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "steel":
+            weaknessList2 = ["fire", "fighting", "ground"];
+            immunitiesList2 = ["poison"];
+            resilientList2 = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+
+          case "water":
+            weaknessList2 = ["electric", "grass"];
+            immunitiesList2 = [];
+            resilientList2 = ["steel", "fire", "water", "ice"];
+            checkTypingMatch();
+            getWeaknessAndImmunity();
+            break;
+        }
+      }
+
+      // Check if the Pokemon have 1 type
+      if (types[1] == "" || types[1] == "undefined") {
+        switch (types[0]) {
+          case "bug":
+            weaknessList = ["fire", "flying", "rock"];
+            immunitiesList = [];
+            resilientList = ["fighting", "ground", "grass"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "dark":
+            weaknessList = ["fighting", "bug", "fairy"];
+            immunitiesList = ["psychic"];
+            resilientList = ["dark", "ghost"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "dragon":
+            weaknessList = ["dragon", "fairy", "ice"];
+            immunitiesList = [];
+            resilientList = ["fire", "water", "grass", "electric"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "electric":
+            weaknessList = ["ground"];
+            immunitiesList = [];
+            resilientList = ["flying", "electric", "steel"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fairy":
+            weaknessList = ["poison", "steel"];
+            immunitiesList = ["dragon"];
+            resilientList = ["fighting", "bug", "dark"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fighting":
+            weaknessList = ["flying", "psychic", "fairy"];
+            immunitiesList = [];
+            resilientList = ["rock", "bug", "dark"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "fire":
+            weaknessList = ["water", "ground", "rock"];
+            immunitiesList = [];
+            resilientList = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "flying":
+            weaknessList = ["electric", "ice", "rock"];
+            immunitiesList = ["ground"];
+            resilientList = ["fighting", "bug", "grass"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ghost":
+            weaknessList = ["ghost", "dark"];
+            immunitiesList = ["normal", "fighting"];
+            resilientList = ["poison", "bug"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "grass":
+            weaknessList = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList = [];
+            resilientList = ["ground", "water", "grass", "electric"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ground":
+            weaknessList = ["water", "grass", "ice"];
+            immunitiesList = ["electric"];
+            resilientList = ["poison", "rock"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "ice":
+            weaknessList = ["fire", "fighting", "rock", "steel"];
+            immunitiesList = [];
+            resilientList = ["ice"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "normal":
+            weaknessList = ["fighting"];
+            immunitiesList = ["ghost"];
+            resilientList = [];
+            getWeaknessAndImmunity();
+            break;
+
+          case "poison":
+            weaknessList = ["ground", "psychic"];
+            immunitiesList = [];
+            resilientList = ["fighting", "poison", "grass", "bug", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "psychic":
+            weaknessList = ["bug", "ghost", "dark"];
+            immunitiesList = [];
+            resilientList = ["psychic", "fighting"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "rock":
+            weaknessList = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList = [];
+            resilientList = ["normal", "flying", "poison", "fire"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "steel":
+            weaknessList = ["fire", "fighting", "ground"];
+            immunitiesList = ["poison"];
+            resilientList = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            getWeaknessAndImmunity();
+            break;
+
+          case "water":
+            weaknessList = ["electric", "grass"];
+            immunitiesList = [];
+            resilientList = ["steel", "fire", "water", "ice"];
+            getWeaknessAndImmunity();
+            break;
+        }
+      }
+
+      // Check if the Pokemon have 2 types
+      else if (types[1] != "" || types[1] != "undefined") {
+        switch (types[0]) {
+          case "bug":
+            weaknessList = ["fire", "flying", "rock"];
+            immunitiesList = [];
+            resilientList = ["fighting", "ground", "grass"];
+            get2ndTypeCal();
+            break;
+
+          case "dark":
+            weaknessList = ["fighting", "bug", "fairy"];
+            immunitiesList = ["psychic"];
+            resilientList = ["dark", "ghost"];
+            get2ndTypeCal();
+            break;
+
+          case "dragon":
+            weaknessList = ["dragon", "fairy", "ice"];
+            immunitiesList = [];
+            resilientList = ["fire", "water", "grass", "electric"];
+            get2ndTypeCal();
+            break;
+
+          case "electric":
+            weaknessList = ["ground"];
+            immunitiesList = [];
+            resilientList = ["flying", "electric", "steel"];
+            get2ndTypeCal();
+            break;
+
+          case "fairy":
+            weaknessList = ["poison", "steel"];
+            immunitiesList = ["dragon"];
+            resilientList = ["fighting", "bug", "dark"];
+            get2ndTypeCal();
+            break;
+
+          case "fighting":
+            weaknessList = ["flying", "psychic", "fairy"];
+            immunitiesList = [];
+            resilientList = ["rock", "bug", "dark"];
+            get2ndTypeCal();
+            break;
+
+          case "fire":
+            weaknessList = ["water", "ground", "rock"];
+            immunitiesList = [];
+            resilientList = ["bug", "fire", "grass", "steel", "ice", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "flying":
+            weaknessList = ["electric", "ice", "rock"];
+            immunitiesList = ["ground"];
+            resilientList = ["fighting", "bug", "grass"];
+            get2ndTypeCal();
+            break;
+
+          case "ghost":
+            weaknessList = ["ghost", "dark"];
+            immunitiesList = ["normal", "fighting"];
+            resilientList = ["poison", "bug"];
+            get2ndTypeCal();
+            break;
+
+          case "grass":
+            weaknessList = ["poison", "ice", "flying", "bug", "fire"];
+            immunitiesList = [];
+            resilientList = ["ground", "water", "grass", "electric"];
+            get2ndTypeCal();
+            break;
+
+          case "ground":
+            weaknessList = ["water", "grass", "ice"];
+            immunitiesList = ["electric"];
+            resilientList = ["poison", "rock"];
+            get2ndTypeCal();
+            break;
+
+          case "ice":
+            weaknessList = ["fire", "fighting", "rock", "steel"];
+            immunitiesList = [];
+            resilientList = ["ice"];
+            get2ndTypeCal();
+            break;
+
+          case "normal":
+            weaknessList = ["fighting"];
+            immunitiesList = ["ghost"];
+            resilientList = [];
+            get2ndTypeCal();
+            break;
+
+          case "poison":
+            weaknessList = ["ground", "psychic"];
+            immunitiesList = [];
+            resilientList = ["fighting", "poison", "grass", "bug", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "psychic":
+            weaknessList = ["bug", "ghost", "dark"];
+            immunitiesList = [];
+            resilientList = ["psychic", "fighting"];
+            get2ndTypeCal();
+            break;
+
+          case "rock":
+            weaknessList = ["water", "grass", "ground", "steel", "fighting"];
+            immunitiesList = [];
+            resilientList = ["normal", "flying", "poison", "fire"];
+            get2ndTypeCal();
+            break;
+
+          case "steel":
+            weaknessList = ["fire", "fighting", "ground"];
+            immunitiesList = ["poison"];
+            resilientList = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"];
+            get2ndTypeCal();
+            break;
+
+          case "water":
+            weaknessList = ["electric", "grass"];
+            immunitiesList = [];
+            resilientList = ["steel", "fire", "water", "ice"];
+            get2ndTypeCal();
+            break;
+        }
+      }
+
 
       //Abilities
       pokemonInfo +=
@@ -243,37 +1289,51 @@ pokemonInfo += "</p></td></tr>";
         });
       });
 
-// Stats
-var statsInfo = "<br><div class='table-container box' style='text-align: center; background-color: #2b2d31;'> ";
-var totalStatValue=0;
-$.each(data.stats, function (index, stat) {
-  
-  var statName = stat.stat.name
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, function (l) {
-      return l.toUpperCase();
-    });
-  if (statName == "Hp") {
-    statName = "Health";
-  }
-  if (statName == "Special Attack") {
-    statName = "Sp Attack";
-  }
-  if (statName == "Special Defense") {
-    statName = "Sp Defense";
-  }
-  var statValue = stat.base_stat;
-  var statBar =
-    "<progress class='progress is-info' value='" +
-    statValue +
-    "' max='255'></progress>";
-  statsInfo +=
-    "<div class='stat-info has-text-white is-size-5'>" +
-    statName +
-    ": " +
-    statValue +
-    statBar +
-    "</div>  ";
+      // Stats
+      var statsInfo = "<br><div class='table-container box' style='text-align: center; background-color: #2b2d31;'> ";
+      var totalStatValue = 0;
+      $.each(data.stats, function (index, stat) {
+
+        var statName = stat.stat.name
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, function (l) {
+            return l.toUpperCase();
+          });
+        if (statName == "Hp") {
+          statName = "Health";
+        }
+        if (statName == "Special Attack") {
+          statName = "Sp Attack";
+        }
+        if (statName == "Special Defense") {
+          statName = "Sp Defense";
+        }
+        var statValue = stat.base_stat;
+        var txtValue;
+
+        if (statValue <= 60) {
+          txtValue = 'is-danger';
+        } else if (statValue <= 99) {
+          txtValue = 'is-warning';
+        } else if (statValue <= 130) {
+          txtValue = 'is-success';
+        } else if (statValue <= 170) {
+          txtValue = 'is-primary';
+        } else {
+          txtValue = 'is-info';
+        }
+
+        var statBar =
+          "<progress class='progress " + txtValue + "' value='" +
+          statValue +
+          "' max='255'></progress>";
+        statsInfo +=
+          "<div class='stat-info has-text-white is-size-5'>" +
+          statName +
+          ": " +
+          statValue +
+          statBar +
+          "</div>  ";
 
         totalStatValue += statValue;
       });
@@ -354,8 +1414,10 @@ $.each(data.stats, function (index, stat) {
           })
           .join(" ");
 
+
+
         movesHtml +=
-          " <span style= 'margin:5px;'class='button custom-button is-size-5 move-button' data-move-url='" +
+          " <span style= 'margin:5px; color: " + '#FFFFFF' + "'class='button custom-button is-size-5 move-button' data-move-url='" +
           move.move.url +
           "'>" +
           pokemonMove +
@@ -389,6 +1451,8 @@ $.each(data.stats, function (index, stat) {
             })
             .join(" ");
 
+
+          moveType = moveType.toLowerCase();
           var moveEffect = moveData.effect_entries.find(function (
             effect
           ) {
