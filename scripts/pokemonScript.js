@@ -929,8 +929,6 @@ $(document).ready(function () {
           })
           .join(" ");
 
-
-
         movesHtml +=
           " <span style= 'margin:5px; color: " + '#FFFFFF' + "'class='button custom-button is-size-5 move-button' data-move-url='" +
           move.move.url +
